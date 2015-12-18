@@ -42,6 +42,17 @@ class course extends adb{
     function viewCourse($courseID) {
         
     }
+	
+	/*
+	 *
+	 */
+	function viewAllCourses() {
+		$str_query="select * from courses";
+		if(!$this->query($str_query)){
+			return false;
+		}	
+		return $this->fetch();
+	}
     
     /*
      * 
