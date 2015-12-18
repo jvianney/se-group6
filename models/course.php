@@ -1,12 +1,12 @@
 <?php
-
+include("adb.php");
 /**
  *
  * This class models a course object and
  * and would be used to perform operations on data
  */
 
-class course {
+class course extends adb{
 
     /*
      * This is a constructor to initialize the class
