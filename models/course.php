@@ -26,7 +26,13 @@ class course extends adb{
      * 
      */
     function updateCourse($courseID, $courseCode, $courseTitle, $courseDescription, $courseObjective, $courseMaterials, $year, $department, $lecturer, $faculty_intern, $semester, $coursePreRequisites) {
-        
+		$insert="update courses set course_code='$courseCode', course_description='$courseDescription', course_materials='$courseMaterials', course_objective='$courseObjective', prerequisites='$coursePreRequisites', lecturer='$lecturer', faculty_intern='$faculty_intern', department='$department', course_title='$courseTitle', semester='$semester', academic_year='$academicYear' where course_id='$courseID'";
+		if(!$this->query($insert)){
+			echo "not successfully submitted";
+			echo mysql_error() ;
+			return false;
+		}
+		return true;
     }
     
     /*
