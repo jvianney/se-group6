@@ -61,13 +61,29 @@ switch($cmd){
      * 
      */
     function deleteCourse() {
-        
+		include("models/course.php");
+		$obj=new Courses();
+		$row=$obj->displayCourse();
+		if(!$row){
+			echo '{"result": 0, "message": "You have no course in the database"}';
+			return;
+        }
+        echo '{"result": 1, "message": [';
+        while($row){
+			echo json_encode($row);
+			$row = $obj->fetch();
+			if($row){
+				echo ',';
+			}
+		}
+		echo "]}";
+		return;
     }
     
     /*
      * 
      */
-    function viewCourse() {
+    function viewAllCourses() {
         
     }
     
