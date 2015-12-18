@@ -40,7 +40,21 @@ switch($cmd){
      * 
      */
     function updateCourse() {
-        
+        include("models/course.php");
+		$obj=new course();
+		$courseCode=$_REQUEST['code'];
+		$courseTitle=$_REQUEST['title'];
+		$semester=$_GET['semester'];
+		$lecturer=$_GET['lecturer'];
+		$faculty_intern=$_GET['faculty_intern'];
+		$courseObjective=$_GET['objective'];
+		$courseMaterials=$_GET['course_material'];
+		$courseDescription=$_GET['description'];
+		$year=$_GET['academic_year'];
+		$coursePreRequisites=$_GET['prerequisites'];
+		$department=$_GET['department'];
+	    /*obj is an object of the courses class that calls the updateCourse method*/
+		$row=$obj->updateCourse($courseID, $courseCode, $courseTitle, $courseDescription, $courseObjective, $courseMaterials, $year, $department, $lecturer, $faculty_intern, $semester, $coursePreRequisites);
     }
     
     /*
