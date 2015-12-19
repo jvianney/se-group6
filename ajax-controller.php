@@ -61,7 +61,18 @@ switch($cmd){
      * 
      */
     function deleteCourse() {
-		
+		if(isset($_REQUEST['id'])){
+        include("models/course.php"); 
+        $id=$_REQUEST['id'];
+    
+        $obj = new course();
+    
+        if($obj->deleteCourse($id)){
+            echo '{"result":1, "message": "deleted"}';
+        }else{
+            echo '{"result":0, "message": "unsuccesful query"}';
+        }
+    }
     }
     
     /*
