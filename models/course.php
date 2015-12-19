@@ -57,7 +57,7 @@ class course extends adb{
 		if(!$this->query($str_query)){
 			return false;
 		}	
-		return $this->fetch();
+		return true;
 	}
     
     /*
