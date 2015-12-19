@@ -72,11 +72,7 @@ class course extends adb{
      * 
      */
     function searchCourseByTitle($courseTitle) {
-        $str_query="select * from courses where course_title like '%$courseTitle%'";
-		if(!$this->query($str_query)){
-			return false;
-		}	
-		return true;
+        
     }
 }
 ?>
