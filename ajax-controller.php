@@ -75,6 +75,7 @@ switch($cmd){
 			echo '{"result": 0, "message": "You have no course in the database"}';
 			return;
         }
+		$row = $obj->fetch();
         echo '{"result": 1, "message": [';
         while($row){
 			echo json_encode($row);
