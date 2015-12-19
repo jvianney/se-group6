@@ -1,11 +1,11 @@
 <?php
-include("adb.php");
+
 /**
  *
  * This class models a course object and
  * and would be used to perform operations on data
  */
-
+include ("adb.php");
 class course extends adb{
 
     /*
@@ -19,8 +19,15 @@ class course extends adb{
      * 
      */
     function addCourse($courseCode, $courseTitle, $courseDescription, $courseObjective, $courseMaterials, $year, $department, $lecturer, $faculty_intern, $semester, $coursePreRequisites) {
-        
-    }
+        $str_query="insert into courses set course_code='$courseCode', course_title='$courseTitle', course_description='$courseDescription', course_objective='$courseObjective', course_materials='$courseMaterials', academic_year='$year', semester='$semester', department='$department', lecturer='$lecturer', faculty_intern='$faculty_intern', prerequisites='$coursePreRequisites'";
+		$res=$this->query($str_query);
+		if(!$res){
+			return false;
+		}
+		else{
+			return true;
+		}
+	}
     
     /*
      * 
