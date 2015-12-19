@@ -16,7 +16,7 @@
 			
 			function display(){
 				var theUrl="ajax-controller.php?cmd=4";
-				prompt("u",theUrl);
+				
 					
 				var obj=sendRequest(theUrl);	
 				if(obj.result==1){
@@ -49,9 +49,9 @@
 						cell10.innerHTML=obj.message[count].department;
 						cell11.innerHTML=obj.message[count].prerequisites;
 						
-						var myid=obj.message[count].course_code;
-						 cell12.innerHTML="<button id="+myid+" >Edit</button>";
-						 cell13.innerHTML="<button id="+myid+">Delete</button>";
+						//var myid=obj.message[count].course_code;
+						//cell12.innerHTML="<button id="+myid+" >Edit</button>";
+						 //cell13.innerHTML="<button id="+myid+">Delete</button>";
 					}
 				}
 			}
@@ -73,6 +73,7 @@
 			<th>FI</th>
 			<th>Department</th>
 			<th>Prerequisites</th>
+			<th>Action</th>
 		</table>
 			   
 				

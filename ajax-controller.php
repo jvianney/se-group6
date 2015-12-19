@@ -75,15 +75,15 @@ switch($cmd){
 			return;
         }
 		$row = $obj->fetch();
-        //echo '{"result": 1, "message": [';
-        while($row=$obj->fetch()){
+        echo '{"result": 1, "message": [';
+        while($row){
 			echo json_encode($row);
-			//$row = $obj->fetch();
-			//if($row){
-			//	echo ',';
-			//}
+			$row = $obj->fetch();
+			if($row){
+				echo ',';
+			}
 		}
-		//echo "]}";
+		echo "]}";
 		return;
     }
     
