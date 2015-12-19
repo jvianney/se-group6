@@ -70,8 +70,7 @@ switch($cmd){
     function viewAllCourses() {
         include("models/course.php");
 		$obj=new course();
-		$row=$obj->viewAllCourses();
-		if(!$row){
+		if(!$obj->viewAllCourses()){
 			echo '{"result": 0, "message": "You have no course in the database"}';
 			return;
         }
