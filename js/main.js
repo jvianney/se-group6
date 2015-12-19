@@ -16,7 +16,7 @@ function sendRequest(u){
 
 function deleteCourse(id){
     alert(id);
-    var theUrl="http://localhost:81/se/project/deleteview.php?cmd=1&id"+id;
+    var theUrl="../ajax-controller.php?cmd=3&id"+id;
     var obj=sendRequest(theUrl);   //send request to the above url
     
     if(obj.result===1){          //check result
@@ -27,7 +27,7 @@ function deleteCourse(id){
 }
 
 function getCourses(){
-    var theUrl="http://localhost:81/se/project/deleteview.php?cmd=1";
+    var theUrl="../ajax-controller.php?cmd=4";
     var obj=sendRequest(theUrl);   //send request to the above url
     
     if(obj.result===1){          //check result
@@ -57,17 +57,17 @@ function display(obj){
     courseDiv += "<td>Lecturer</td><td>Faculty Intern</td>";
     courseDiv += "<td>Department</td><td>Prerequisites</td>";
     courseDiv += "<td>DELETE</td></tr>";
-    for( var index in obj.courses){
-        courseDiv += "<tr><td>"+obj.courses[index].course_id+"</td>";
-        courseDiv += "<td>"+obj.courses[index].course_code+"</td>";
-        courseDiv += "<td>"+obj.courses[index].course_title+"</td>";
-        courseDiv += "<td>"+obj.courses[index].course_description+"</td>";
-        courseDiv += "<td>"+obj.courses[index].course_objective+"</td><td>";
-        courseDiv += obj.courses[index].course_materials+"</td><td>";
-        courseDiv += obj.courses[index].academic_year+"</td><td>"+obj.courses[index].semester+"</td><td>";
-        courseDiv += obj.courses[index].lecturer+"</td><td>"+obj.courses[index].faculty_intern+"</td><td>";
-        courseDiv += obj.courses[index].department+"</td><td>"+obj.courses[index].prerequisites+"</td>";
-        courseDiv += "<td><a href=javascript:deleteCourse("+obj.courses[index].course_id+")>DELETE</td></tr>";
+    for( var index in obj.message){
+        courseDiv += "<tr><td>"+obj.message[index].course_id+"</td>";
+        courseDiv += "<td>"+obj.message[index].course_code+"</td>";
+        courseDiv += "<td>"+obj.message[index].course_title+"</td>";
+        courseDiv += "<td>"+obj.message[index].course_description+"</td>";
+        courseDiv += "<td>"+obj.message[index].course_objective+"</td><td>";
+        courseDiv += obj.message[index].course_materials+"</td><td>";
+        courseDiv += obj.message[index].academic_year+"</td><td>"+obj.message[index].semester+"</td><td>";
+        courseDiv += obj.message[index].lecturer+"</td><td>"+obj.message[index].faculty_intern+"</td><td>";
+        courseDiv += obj.message[index].department+"</td><td>"+obj.message[index].prerequisites+"</td>";
+        courseDiv += "<td><a href=javascript:deleteCourse("+obj.message[index].course_id+")>DELETE</td></tr>";
 
     }
     
