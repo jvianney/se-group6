@@ -24,6 +24,9 @@ switch($cmd){
     case 4:
         viewAllCourses();
         break;
+    case 5:
+        searchCourseByTitle();
+        break;
     default:
         echo '{"result" : 0, "message" : "Unknown Command"}';
         break;
@@ -102,6 +105,23 @@ switch($cmd){
      * 
      */
     function searchCourseByTitle() {
-        
+        include("models/course.php");
+        $obj = new course();
+        $st = $_REQUEST['st'];
+        if (!$obj->searchCourseByTitle($st)){
+            echo '{"result": 0, "message: "Error Searching for Course '.mysql_error().'"}';
+            return;
+        }
+        $row = $obj->fetch();
+        echo '{"result": 1, "message": [';
+        while($row){
+			echo json_encode($row);
+			$row = $obj->fetch();
+			if($row){
+				echo ',';
+			}
+		}
+		echo "]}";
+		return;
     }
 ?>

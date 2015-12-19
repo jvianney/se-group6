@@ -1,5 +1,15 @@
 $(document).ready(function(){
-    getCourses();
+    $("#btnSubmit").click(function(){
+        var st = $("#st").val();
+        var url = "ajax-controller.php?cmd=5&st="+st;
+        var obj = sendRequest(url);
+        
+        if (obj.result ===1){
+            display(obj);
+        } else {
+            alert(obj.message);
+        }
+    });
 });
 
 
@@ -15,7 +25,7 @@ function sendRequest(u){
 }
 
 function deleteCourse(id){
-    alert(id);
+    //alert(id);
     var theUrl="ajax-controller.php?cmd=3&id"+id;
     var obj=sendRequest(theUrl);   //send request to the above url
     
