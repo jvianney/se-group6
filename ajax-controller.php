@@ -102,6 +102,22 @@ switch($cmd){
      * 
      */
     function searchCourseByTitle() {
-        
+        include("models/course.php");
+        $obj = new course();
+        if (!$obj->searchCourseByTitle()){
+            echo '{"result": 0, "message: "Error Searching for Course '.mysql_error().'"}';
+            return;
+        }
+        $row = $obj->fetch();
+        echo '{"result": 1, "message": [';
+        while($row){
+			echo json_encode($row);
+			$row = $obj->fetch();
+			if($row){
+				echo ',';
+			}
+		}
+		echo "]}";
+		return;
     }
 ?>
