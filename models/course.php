@@ -46,7 +46,7 @@ class course extends adb{
      * 
      */
     function deleteCourse($courseID) {
-        $str_query = "delete from courses where course_id='$id'";
+        $str_query = "delete from courses where course_id='$courseID'";
 		return $this->query($str_query);
     }
     

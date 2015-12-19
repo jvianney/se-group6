@@ -16,7 +16,7 @@ function sendRequest(u){
 
 function deleteCourse(id){
     alert(id);
-    var theUrl="../ajax-controller.php?cmd=3&id"+id;
+    var theUrl="ajax-controller.php?cmd=3&id"+id;
     var obj=sendRequest(theUrl);   //send request to the above url
     
     if(obj.result===1){          //check result
@@ -27,7 +27,7 @@ function deleteCourse(id){
 }
 
 function getCourses(){
-    var theUrl="../ajax-controller.php?cmd=4";
+    var theUrl="ajax-controller.php?cmd=4";
     var obj=sendRequest(theUrl);   //send request to the above url
     
     if(obj.result===1){          //check result
