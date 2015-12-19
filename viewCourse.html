@@ -1,0 +1,79 @@
+<html>
+
+	<head>
+		<script src="js/jquery-2.1.4.js"></script>
+		<script src="js/main.js"></script>
+		
+	 
+		<script type ="text/javascript">
+			function sendRequest(u){
+				//var obj=$.ajax({url:u,async:false});
+				var obj=$.ajax({url:u,async:false});
+				//Convert the JSON string to object
+				var result=$.parseJSON(obj.responseText);
+				return result;	//return object
+			}
+			
+			function display(){
+				var theUrl="ajax.php?cmd=2";
+					
+				var obj=sendRequest(theUrl);	
+				if(obj.result==1){
+				var table=document.getElementById("mytable");
+				
+					for(var count=0; count<obj.message.length; count++){
+						var myrow=table.rows.length;
+						var row =table.insertRow(myrow);
+						var cell1=row.insertCell(0);
+						var cell2=row.insertCell(1);
+						var cell3=row.insertCell(2);
+						var cell4=row.insertCell(3);
+						var cell5=row.insertCell(4);
+						var cell6=row.insertCell(5);
+						var cell7=row.insertCell(6);
+						var cell8=row.insertCell(7);
+						var cell9=row.insertCell(8);
+						var cell10=row.insertCell(9);
+						var cell11=row.insertCell(10);
+						  
+						cell1.innerHTML=obj.message[count].course_code;
+						cell2.innerHTML=obj.message[count].course_title;
+						cell3.innerHTML=obj.message[count].course_description;
+						cell4.innerHTML=obj.message[count].course_objective;
+						cell5.innerHTML=obj.message[count].course_materials;
+						cell6.innerHTML=obj.message[count].academic_year;
+						cell7.innerHTML=obj.message[count].semester;
+						cell8.innerHTML=obj.message[count].lecturer;
+						cell9.innerHTML=obj.message[count].faculty_intern;
+						cell10.innerHTML=obj.message[count].department;
+						cell11.innerHTML=obj.message[count].prerequisites;
+						
+						var myid=obj.message[count].course_code;
+						 cell12.innerHTML="<button id="+myid+" >Edit</button>";
+						 cell13.innerHTML="<button id="+myid+">Delete</button>";
+					}
+				}
+			}
+		</script>
+	</head>
+	
+	<body onload="display()">
+	
+		<table id ="mytable" border="1">
+			
+			<th>Code</th>
+			<th>Course Name</th>
+			<th>Description</th>
+			<th>Objective</th>
+			<th>Materials</th>
+			<th>Academic Year</th>
+			<th>Semester</th>
+			<th>Lecturer</th>
+			<th>FI</th>
+			<th>Department</th>
+			<th>Prerequisites</th>
+		</table>
+			   
+				
+	</body>
+</html>

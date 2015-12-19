@@ -22,7 +22,7 @@ switch($cmd){
         deleteCourse();
         break;
     case 4:
-        viewCourse();
+        viewAllCourses();
         break;
     default:
         echo '{"result" : 0, "message" : "Unknown Command"}';
@@ -61,9 +61,16 @@ switch($cmd){
      * 
      */
     function deleteCourse() {
-		include("models/course.php");
-		$obj=new Courses();
-		$row=$obj->displayCourse();
+		
+    }
+    
+    /*
+     * 
+     */
+    function viewAllCourses() {
+        include("models/course.php");
+		$obj=new course();
+		$row=$obj->viewAllCourses();
 		if(!$row){
 			echo '{"result": 0, "message": "You have no course in the database"}';
 			return;
@@ -78,13 +85,6 @@ switch($cmd){
 		}
 		echo "]}";
 		return;
-    }
-    
-    /*
-     * 
-     */
-    function viewAllCourses() {
-        
     }
     
     /*
