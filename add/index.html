@@ -1,0 +1,65 @@
+<!--
+Ali Seidu
+Software Engineering
+November 2015
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>index</title>
+	<!-- <link rel="stylesheet" href="css/style.css"> -->
+	<script type="text/javascript" src="jquery.js"></script>
+    <!--<script type="text/javascript" src="oldcode.js"></script>-->
+	<script src="script.js"></script>
+</head>
+<body bgcolor="##00ffbf">
+<fieldset>
+<legend>Add a Course</legend>
+		<form id="AddCourseForm" name="AddCourseForm">
+			Course code: <br>
+			<input type="text" name="cd" id="cd" size="30"><br><br>
+			Course Title:<br>
+			<input type="text" name="ct" id="ct" size="30"><br><br>
+			Semester:<br>
+			<input type="radio" name="cs" value="Fall">Fall<br>
+			<input type="radio" name="cs" value="Spring">Spring<br>
+			<input type="radio" name="cs" value="Summer">Summer<br><br>
+			Year:<br>
+			<select name="cy" id="cy">
+	<option value=""> - Click arrow to select year - </option>
+	<option value="2012">2012</option>
+	<option value="2013">2013</option>
+	<option value="2014">2014</option>
+	<option value="2015">2015</option>
+	<option value="2016">2016</option>
+	<option value="2017">2017</option>
+	<option value="2018">2018</option>
+	<option value="2019">2019</option>
+	<option value="2020">2020</option>
+	<option value="2021">2021</option>
+	<option value="2022">2022</option>
+	<option value="2023">2023</option>
+	<option value="2024">2024</option>
+	<option value="2025">2025</option>
+</select><br><br>
+			Course Description:<br>
+			<textarea cols="55" name="cdes" id="cdes"></textarea><br><br>
+			Course Objective:<br>
+			<textarea cols="55" name="co" id="co"></textarea><br><br>
+			Course Materials:<br>
+			<textarea cols="55" name="cm" id="cm"></textarea><br><br>
+			Department:<br>
+			<input type="text" name="dept" id="dept" size="30"><br><br>
+			Course Lecturer(s):<br>
+			<input type="text" name="cl" id="cl" size="30"><br><br>
+			Course FI(`s):<br>
+			<input type="text" name="cfi" id="cfi" size="30"><br><br>
+			Prerequisite Courses:<br>
+			<input type="text" name="pc" id="pc" size="30"><br><br>
+			<button type="submit" onclick="gothere()">ADD</button>
+		</form>
+		</fieldset>
+		
+</body>
+</html>
