@@ -1,5 +1,7 @@
 $(document).ready(function(){
-    getCourses();
+    $("#btnSearch").click(function(){
+        alert();
+    });
 });
 
 
