@@ -66,5 +66,16 @@ class course extends adb{
     function searchCourseByTitle($courseTitle) {
         
     }
+	
+	/*
+     * 
+     */
+	function login ($email, $password) {
+		$login="select * from sign_up where email='$email'AND password='$password'";
+		if(!$this->query($login)){
+			return false;
+		}
+		return $this->fetch();
+	}
 }
 ?>

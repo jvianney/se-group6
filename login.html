@@ -1,0 +1,30 @@
+<html>
+	<head>
+		<script src="js/jquery-2.1.4.js"></script>
+		<script src="js/main.js"></script>
+		
+		<script type="text/javascript">
+			function sendRequest(u){
+				var obj=$.ajax({url:u,async:false});
+				var result=$.parseJSON(obj.responseText);
+				return result;
+			}
+		
+			function login(){
+		
+				var email=$('#email').val();
+				var password=$('#password').val();
+				var theUrl="ajax.php?cmd=4&email="+email+"&password="+password;
+				var obj=sendRequest(theUrl);
+				if(obj.result==1){
+				window.location.href="View.html";
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<input type ="password" name="password" id="password" placeholder="password">
+		<input type ="email" name="email" id="email" placeholder="email">
+		<input type ="submit" name="submit" value="submit" onClick="login()">
+	</body>
+</html>
