@@ -33,10 +33,24 @@ switch($cmd){
 }
 
     /*
-     * 
+     * this function adds a course to the system
      */
     function addCourse() {
-        
+           include("models/course.php");
+		$obj=new course();
+		$courseCode=$_REQUEST['code'];
+		$courseTitle=$_REQUEST['title'];
+		$semester=$_GET['semester'];
+		$lecturer=$_GET['lecturer'];
+		$faculty_intern=$_GET['faculty_intern'];
+		$courseObjective=$_GET['objective'];
+		$courseMaterials=$_GET['course_material'];
+		$courseDescription=$_GET['description'];
+		$year=$_GET['academic_year'];
+		$coursePreRequisites=$_GET['prerequisites'];
+		$department=$_GET['department'];
+	    /*obj is an object of the courses class that calls the updateCourse method*/
+		$row=$obj->updateCourse($courseID, $courseCode, $courseTitle, $courseDescription, $courseObjective, $courseMaterials, $year, $department, $lecturer, $faculty_intern, $semester, $coursePreRequisites);
     }
     
     /*
@@ -61,7 +75,7 @@ switch($cmd){
     }
     
     /*
-     * 
+     *this function deletes a course from the system 
      */
     function deleteCourse() {
 		if(isset($_REQUEST['id'])){
@@ -79,7 +93,7 @@ switch($cmd){
     }
     
     /*
-     * 
+     * this function display all the courses in the system in a JSON format
      */
     function viewAllCourses() {
         include("models/course.php");
@@ -102,7 +116,7 @@ switch($cmd){
     }
     
     /*
-     * 
+     *this function searches for a course using an id 
      */
     function searchCourseByTitle() {
         include("models/course.php");
