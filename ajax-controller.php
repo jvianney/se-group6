@@ -54,7 +54,7 @@ switch($cmd){
     }
     
     /*
-     * 
+     * this function updates a the details of a course
      */
     function updateCourse() {
         include("models/course.php");
